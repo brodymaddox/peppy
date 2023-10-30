@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "peppy"
+name = "peppy_esolang"
 version = "0.1.0"
 description = "A Python implementation of the pepp*erdine esoteric programming language"
 authors = ["brody maddox <brodyfmaddox@gmail.com>"]
