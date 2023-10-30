@@ -3,6 +3,7 @@ name = "peppy"
 version = "0.1.0"
 description = "A Python implementation of the pepp*erdine esoteric programming language"
 authors = ["brody maddox <brodyfmaddox@gmail.com>"]
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.8"
