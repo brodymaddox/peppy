@@ -1,3 +1,5 @@
+# Primarily From: https://github.com/kosayoda/chickenpy/
+
 import enum
 import logging
 import typing as t
@@ -7,7 +9,6 @@ log = logging.getLogger("chickenpy.VM")
 
 @enum.unique
 class OPCODE(enum.IntEnum):
-    START = -1
     EXIT = 0
     CHICKEN = 1
     ADD = 2
