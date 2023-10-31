@@ -1,5 +1,6 @@
 # peppy
  Python Implementation of the Pepp*erdine Esoteric Programming Language
+ https://esolangs.org/wiki/Pepp*erdine
  
  Code is mostly from https://github.com/kosayoda/chickenpy/
 
