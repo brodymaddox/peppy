@@ -1,6 +1,6 @@
-#Primarily From https://github.com/kosayoda/chickenpy/
+#Primarily Adapted From https://github.com/kosayoda/chickenpy/
 
-from peppy.vm import OPCODE
+from peppy_esolang.vm import OPCODE
 
 
 class ParseError(Exception):
@@ -15,10 +15,12 @@ def compile(code: str):
     for line_no, line in enumerate(lines, start=1):
 
         # Check for start character
+        # There is no requirement in it for running the virtual machine
         if line_no==1 and not line.strip() == 'pep':
             print("Program must start with pep")
             break
         
+        #Avoid logic calculation for start character
         if line.strip() == 'pep':
             continue 
 
@@ -27,19 +29,17 @@ def compile(code: str):
             tokens.append(OPCODE.EXIT)
             continue
 
-        #Convert p's into chickens
-        line = line.replace('p', 'chicken ')
-
         words = line.split()
-        # Raise syntax error if any word other than 'chicken' or whitespace is found
-        if word_set := (set(words) - {"chicken", " "}):
+        # Raise syntax error if any word other than 'p' or whitespace is found
+        if word_set := {word for word in words if not all(char == 'p' or char == ' ' for char in word)} - {""}:
             raise ParseError(f"Invalid token(s) on line {line_no}: {' '.join(word_set)}")
             return False
 
-        num_chickens = len(line.split())
-        # Any number of chickens > 9 is used as is
-        if num_chickens > 9:
-            tokens.append(num_chickens)
+        # Count 'p' characters
+        num_p = line.count('p')
+        # Any number of p's > 9 is used as is
+        if num_p > 9:
+            tokens.append(num_p)
         else:
-            tokens.append(OPCODE(num_chickens))
+            tokens.append(OPCODE(num_p))
     return tokens

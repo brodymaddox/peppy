@@ -8,8 +8,8 @@ import typing as t
 
 import click
 
-from peppy.compiler import compile, ParseError
-from peppy.vm import Machine
+from peppy_esolang.compiler import compile, ParseError
+from peppy_esolang.vm import Machine
 
 EXIT_FAILURE = 1
 EXIT_SUCCESS = 0

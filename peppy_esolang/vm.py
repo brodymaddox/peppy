@@ -1,16 +1,16 @@
-# Primarily From: https://github.com/kosayoda/chickenpy/
+# Primarily Adapted From: https://github.com/kosayoda/chickenpy/
 
 import enum
 import logging
 import typing as t
 
-log = logging.getLogger("chickenpy.VM")
+log = logging.getLogger("peppy_esolang.VM")
 
 
 @enum.unique
 class OPCODE(enum.IntEnum):
     EXIT = 0
-    CHICKEN = 1
+    P = 1
     ADD = 2
     SUB = 3
     MUL = 4
@@ -29,8 +29,8 @@ Token = t.Union[OPCODE, int, str]
 
 class Machine:
     """
-    Virtual machine for the Chicken programming language.
-    Full specification can be found here: https://esolangs.org/wiki/Chicken
+    Virtual machine for the Pepp*erdine programming language.
+    Full specification can be found here: https://esolangs.org/wiki/Pepp*erdine
     """
     def __init__(self, code: t.List[str], stdin: str = ""):
         self.stack = []
@@ -73,13 +73,13 @@ class Machine:
     def dispatch(self, op: Token):
         """
         Executes the current opcode.
-        See: https://esolangs.org/wiki/Chicken#Instructions
+        See: https://esolangs.org/wiki/Pepp*erdine#Instructions
         """
         log.debug(f"Evaluating {str(op)}")
 
-        if op is OPCODE.CHICKEN:
-            log.debug("Pushing 'chicken' to stack")
-            self.push("chicken")
+        if op is OPCODE.P:
+            log.debug("Pushing 'p' to stack")
+            self.push("p")
 
         elif op is OPCODE.ADD:
             operand_2, operand_1 = self.pop(), self.pop()
@@ -119,7 +119,7 @@ class Machine:
                 f"Loading index {load_index!r} from {'stack' if load_from == 0 else 'user input'!r}"
             )
             # Accessing a string with an invalid index returns `undefined` in JS.
-            # We return an empty string to ensure the 99 chickens example doesn't crash,
+            # We return an empty string to ensure the 99 p's example doesn't crash,
             # as it relies in UB.
             try:
                 load = source[load_index]
