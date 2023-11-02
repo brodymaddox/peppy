@@ -2,7 +2,7 @@
  Python Implementation of the Pepp*erdine Esoteric Programming Language
  https://esolangs.org/wiki/Pepp*erdine
  
- Code is mostly from https://github.com/kosayoda/chickenpy/
+ Code is mostly adapted from https://github.com/kosayoda/chickenpy/
 
  Pepp*erdine is a language in which the only valid tokens are "pep", "erdine", "\n", and concatenations of 'p' with itself. 
  'pep' is the start command, 'erdine' is the halt command. Each line of a .ppd program corresponds to an opcode denoted
